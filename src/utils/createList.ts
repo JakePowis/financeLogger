@@ -10,3 +10,18 @@ export function createList(array: ItemFormat[], ul: HTMLUListElement ) {
 
 
 }
+
+
+export const calculateClosing = (opening: number, array: ItemFormat[]) => {
+
+
+    const netCash: number = array.reduce((a,c)=> {
+      if(c.type === 'invoice') return a + c.amount
+      else return a - c.amount
+    
+    }, 0)
+    
+    return opening + netCash;
+      
+    }
+    

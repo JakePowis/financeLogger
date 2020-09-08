@@ -2,7 +2,7 @@ import { Invoice } from './classes/Invoice.js';
 import { Payment } from './classes/Payment.js';
 import { ListTemplate } from './classes/ListTemplate.js';
 import { ItemFormat } from './interfaces/ItemFormat.js';
-import { createList } from  './utils/createList.js'
+import { createList, calculateClosing } from  './utils/createList.js'
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
 
@@ -11,6 +11,32 @@ const type = document.querySelector('#type') as HTMLInputElement;
 const tofrom = document.querySelector('#tofrom') as HTMLInputElement;
 const details = document.querySelector('#details') as HTMLInputElement;
 const amount = document.querySelector('#amount') as HTMLInputElement;
+
+
+const openingBalInput = document.querySelector('#opening') as HTMLInputElement;
+const closingBalDiv = document.querySelector('#closing') as HTMLDivElement;
+
+const savedOpeningBal: number = JSON.parse(localStorage.getItem('opening')!)
+
+let openingBal: number = savedOpeningBal ? savedOpeningBal : 0;
+let closingBal: number = 0;
+
+openingBalInput.value = String(openingBal)
+
+
+//On Change Event of opening balance
+openingBalInput.addEventListener('change', () => {
+
+openingBal = Number(openingBalInput.value)
+
+closingBal = calculateClosing(openingBal, array)
+
+closingBalDiv.textContent = `£${String(closingBal)}`
+
+localStorage.setItem('opening', JSON.stringify(openingBal));
+})
+
+
 
 // list template instance
 const ul = document.querySelector('ul')!;
@@ -26,7 +52,15 @@ data ? array = data : null
 //if data held, print it
 if (array) {
   createList(array, ul)
+
+  //if data held, update closing balance
+  closingBal = calculateClosing(openingBal, array)
+  closingBalDiv.textContent = `£${String(closingBal)}`
+
 }
+
+
+
 
 //on Submit
 form.addEventListener('submit', (e: Event) => {
@@ -47,8 +81,7 @@ form.addEventListener('submit', (e: Event) => {
 
   array.push(doc)
   localStorage.setItem('history', JSON.stringify(array));
-  console.log("array is: ", array)
-
 
 });
+
 

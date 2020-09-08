@@ -57,9 +57,9 @@ input, select{
   margin: 0 10px;
 }
 button{
-  color: white;
+  color: #999;
   border: 0;
-  background: navy;
+  background: #eee;
   padding: 6px;
   min-width: 80px;
   border-radius: 4px;
@@ -85,4 +85,14 @@ footer a{
   border:#999 solid 1px;
   color: #999;
 
+}
+
+li > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add {
+  background: navy;
+  color:white;
 }

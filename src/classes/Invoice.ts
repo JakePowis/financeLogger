@@ -9,6 +9,6 @@ export class Invoice implements ItemFormat {
   ){}
 
   format() {
-    return `${this.client} owes £${this.amount} for ${this.details}`;
+    return `${this.client} owes you £${this.amount} for ${this.details}`;
   }
 }

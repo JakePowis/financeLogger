@@ -1,6 +1,6 @@
-import { Payment } from './Payment.js';
-import { Invoice } from './Invoice.js';
-import { calculateClosing } from '../utils/createList.js';
+import { Payment } from './Payment';
+import { Invoice } from './Invoice';
+import { calculateClosing } from '../utils/createList';
 export class ListTemplate {
     constructor(container) {
         this.container = container;

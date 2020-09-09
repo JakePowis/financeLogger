@@ -1,4 +1,4 @@
-import { ItemFormat } from '../interfaces/ItemFormat.js';
+import { ItemFormat } from '../interfaces/ItemFormat';
 
 export class Invoice implements ItemFormat {
   constructor(

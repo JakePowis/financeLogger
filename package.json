@@ -1,0 +1,29 @@
+{
+  "name": "financeLogger",
+  "version": "1.0.0",
+  "description": "A finance app to log incoming & outgoing payments to help manage cashflow.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "serve": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JakePowis/financeLogger.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JakePowis/financeLogger/issues"
+  },
+  "homepage": "https://github.com/JakePowis/financeLogger#readme",
+  "devDependencies": {
+    "ts-loader": "^8.0.3",
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

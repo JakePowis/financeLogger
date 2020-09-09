@@ -1,5 +1,5 @@
-import { ItemFormat } from "../interfaces/ItemFormat.js";
-import {ListTemplate} from '../classes/ListTemplate.js'
+import { ItemFormat } from "../interfaces/ItemFormat";
+import {ListTemplate} from '../classes/ListTemplate'
 
 export function createList(array: ItemFormat[], ul: HTMLUListElement ) {
 

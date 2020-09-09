@@ -1,4 +1,4 @@
-import { ListTemplate } from '../classes/ListTemplate.js';
+import { ListTemplate } from '../classes/ListTemplate';
 export function createList(array, ul) {
     array.forEach(item => {
         const list = new ListTemplate(ul);

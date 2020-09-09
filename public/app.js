@@ -1,7 +1,7 @@
-import { Invoice } from './classes/Invoice.js';
-import { Payment } from './classes/Payment.js';
-import { ListTemplate } from './classes/ListTemplate.js';
-import { createList, calculateClosing } from './utils/createList.js';
+import { Invoice } from './classes/Invoice';
+import { Payment } from './classes/Payment';
+import { ListTemplate } from './classes/ListTemplate';
+import { createList, calculateClosing } from './utils/createList';
 const form = document.querySelector('.new-item-form');
 // inputs
 const type = document.querySelector('#type');

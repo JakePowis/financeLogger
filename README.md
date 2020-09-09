@@ -2,7 +2,9 @@
 
 A finance app to log incoming & outgoing payments to help manage cashflow.
 
-Built with TypeScript.
+Built with TypeScript. 
+
+Deployed with Webpack.
 
 ----
 

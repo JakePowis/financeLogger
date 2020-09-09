@@ -63,6 +63,14 @@ button{
   padding: 6px;
   min-width: 80px;
   border-radius: 4px;
+  margin-top: 10px;
+  border: white solid 1px
+}
+
+button:hover {
+
+  color:black;
+  border: black solid 1px
 }
 footer a{
   text-align: center;
@@ -81,9 +89,18 @@ footer a{
 .openingBal, .closingBal {
   text-align: center;
   width: 10%;
-  height: 20px;
+  min-height: 10px;
   border:#999 solid 1px;
   color: #999;
+  padding: 2px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.openingBal {
+
+  color: navy;
+  background: rgba(238, 238, 238, 0.431)
 
 }
 
@@ -95,4 +112,10 @@ li > div {
 .add {
   background: navy;
   color:white;
+  border: black solid 1px;
 }
+
+.add:hover {
+  color:lightgrey;
+}
+

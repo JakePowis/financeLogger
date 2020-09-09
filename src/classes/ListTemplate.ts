@@ -1,11 +1,18 @@
 import { ItemFormat } from "../interfaces/ItemFormat";
 import {Payment} from './Payment.js';
 import {Invoice} from './Invoice.js'
+import {calculateClosing} from '../utils/createList.js'
 
 export class ListTemplate {
   constructor(private container: HTMLUListElement){}
 
-  render(item: ItemFormat, heading: string, pos: 'start' | 'end'){
+  render(item: ItemFormat, heading: string, pos: 'start' | 'end', array: ItemFormat[]){
+
+    //for update to opening & closing cash
+    const openingBalInput = document.querySelector('#opening') as HTMLInputElement;
+    const closingBalDiv = document.querySelector('#closing') as HTMLDivElement;
+
+
     const li = document.createElement('li');
   
     const h4 = document.createElement('h4');
@@ -13,7 +20,7 @@ export class ListTemplate {
     item.type === 'payment' ? h4.style.color = "crimson" : null;
     li.append(h4);
 
-    const container = document.createElement('div');
+    const textcontainer = document.createElement('div');
 
     const p = document.createElement('p');
 
@@ -32,12 +39,28 @@ export class ListTemplate {
     item.type === 'payment' ? amount.style.color = "crimson" : amount.style.color = "navy"
 
     const del = document.createElement('button');
-    del.innerText = 'delete'
+    del.innerText = 'delete';
+    const index: number = this.container.children.length
+    del.id = String(index)
+    del.onclick = function(){
+      //delete from saved array by index
+      array.splice(index, 1);
+      //saved new array to local store
+      localStorage.setItem('history', JSON.stringify(array));
+      //remove the li from HTML
+      li.remove()
+
+      //TODO: update closing bal
+      let closingBal: number = calculateClosing(Number(openingBalInput.value), array)
+
+      closingBalDiv.textContent = `£${String(closingBal)}`
+    } 
 
 
-    container.append(p);
-    container.append(amount);
-    li.append(container)
+
+    textcontainer.append(p);
+    textcontainer.append(amount);
+    li.append(textcontainer)
     li.append(del);
 
     if(pos === 'start'){
@@ -45,5 +68,11 @@ export class ListTemplate {
     } else {
       this.container.append(li);
     }
+
+     //TODO: update closing bal
+     let closingBal: number = calculateClosing(Number(openingBalInput.value), array)
+
+     closingBalDiv.textContent = `£${String(closingBal)}`
+     
   }
 }

@@ -27,22 +27,22 @@
     <form class="new-item-form">
       <div class="field">
         <label>Type:</label>
-        <select id="type">
+        <select id="type" required>
           <option value="invoice">Invoice</option>
           <option value="payment">Payment</option>
         </select>
       </div>
       <div class="field">
-        <label>To / From:</label>
-        <input type="text" id="tofrom">
+        <label >To / From:</label>
+        <input type="text" id="tofrom" required>
       </div>   
       <div class="field">
         <label>Details:</label>
-        <input type="text" id="details">
+        <input type="text" id="details" required>
       </div>
       <div class="field">
         <label>Amount (£):</label>
-        <input type="number" id="amount">
+        <input type="number" id="amount" required>
       </div>
       <button class="add">Add</button>
     </form>

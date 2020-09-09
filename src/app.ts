@@ -77,9 +77,11 @@ form.addEventListener('submit', (e: Event) => {
     doc = new Payment(...values);
   }
   
-  list.render(doc, type.value, 'end');
-
   array.push(doc)
+
+  list.render(doc, type.value, 'end', array);
+
+
   localStorage.setItem('history', JSON.stringify(array));
 
 });

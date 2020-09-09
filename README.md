@@ -6,5 +6,5 @@ Built with TypeScript.
 
 ----
 
-![site](https://i.ibb.co/5xYBwR6/fianncelogger.png)
+![site](https://i.ibb.co/Xx8WmCw/fin-Readme.png)
 ----
